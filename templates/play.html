@@ -352,6 +352,7 @@
         </div>
     </div>
     <audio id="bg-music" src="../em.mp3" autoplay loop></audio>
+    <audio id="plop-sound" src="../plop.mp3" preload="auto"></audio>
     <div class="difficulty-overlay show" id="difficulty-overlay">
         <div class="difficulty-picker">
             <h2>Choose Difficulty</h2>
@@ -532,6 +533,7 @@
                 if (canPlay(playedCard, currentTopCard, currentColor)) {
                     currentHand.splice(idx, 1);
                     currentTopCard = playedCard;
+                    var plop = document.getElementById('plop-sound'); plop.currentTime = 0; plop.play();
 
                     if (playedCard.color === 'wild') {
                         renderHand();
@@ -643,6 +645,7 @@
 
                 if (idx !== -1 && canPlay(opponentHand[idx], currentTopCard, currentColor)) {
                     const playedCard = opponentHand.splice(idx, 1)[0];
+                    var plop = document.getElementById('plop-sound'); plop.currentTime = 0; plop.play();
                     showStatus(`Ooh how about this! ${playedCard.color.toUpperCase()} ${playedCard.value.toUpperCase()} 😏`);
                     currentTopCard = playedCard;
                     currentColor = playedCard.color === 'wild' ? currentColor : playedCard.color;
