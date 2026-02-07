@@ -6,40 +6,6 @@
     <title>unoAI - Play</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .table-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            width: 600px;
-            height: 350px;
-            pointer-events: none;
-        }
-        .portrait-above-table {
-            position: fixed;
-            left: 50%;
-            top: calc(50% - 220px);
-            transform: translateX(-50%);
-            z-index: 2;
-            height: 120px;
-        }
-        .table-center {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-        }
-
-        .portrait-above-table {
-            position: fixed;
-            left: 50%;
-            top: calc(50% - 220px);
-            transform: translateX(-50%);
-            z-index: 2;
-            height: 120px;
-        }
         .hand {
             position: fixed;
             left: 50%;
@@ -360,14 +326,14 @@
 </head>
 <body>
     <div class="center-table">
-        <img src="../Tables/table_green.png.png" alt="Table Green" />
+        <img src="../Tables/table_green.png.png?v=2" alt="" />
     </div>
     <div class="hand" id="player-hand"></div>
-    <img id="character-img" class="character-img" src="" alt="Character" />
+    <img id="character-img" class="character-img" src="" alt="" style="display:none;" />
     <button class="restart-btn" id="restart-btn">Restart Game</button>
     <div class="middle-cards">
         <div class="deck-card">
-            <img id="deck-draw" src="../Uno/individual/card back/card_back.png" alt="Card Back (click to draw)" />
+            <img id="deck-draw" src="../Uno/individual/card back/card_back.png?v=2" alt="" />
         </div>
         <div class="top-card" id="top-card"></div>
     </div>
@@ -538,25 +504,6 @@
                 handDiv.appendChild(label);
             });
         }
-        function insertTableImage() {
-            const tableImg = document.createElement('img');
-            tableImg.src = '../Tables/blue_table.png';
-            tableImg.alt = 'UNO Table';
-            tableImg.className = 'table-bg';
-            document.body.appendChild(tableImg);
-        }
-
-        function insertCharacterAboveTable() {
-            const charImg = document.createElement('img');
-            charImg.src = '../Assets/character.png';
-            charImg.alt = 'Character';
-            charImg.className = 'portrait-above-table';
-            document.body.appendChild(charImg);
-        }
-
-        insertTableImage();
-        insertCharacterAboveTable();
-
         function renderOpponentHand() {
             const oppDiv = document.getElementById('opponent-hand');
             oppDiv.innerHTML = '';
@@ -755,6 +702,7 @@
             const img = document.getElementById('character-img');
             img.src = `../Characters/char_${n}.png`;
             img.alt = `Character ${n}`;
+            img.style.display = '';
         }
         setRandomCharacter();
 
