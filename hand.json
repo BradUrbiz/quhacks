@@ -1,0 +1,30 @@
+[
+  {
+    "color": "red",
+    "value": "9"
+  },
+  {
+    "color": "red",
+    "value": "2"
+  },
+  {
+    "color": "blue",
+    "value": "5"
+  },
+  {
+    "color": "green",
+    "value": "skip"
+  },
+  {
+    "color": "yellow",
+    "value": "9"
+  },
+  {
+    "color": "green",
+    "value": "skip"
+  },
+  {
+    "color": "yellow",
+    "value": "draw2"
+  }
+]

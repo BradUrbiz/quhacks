@@ -217,9 +217,10 @@ function nextPlayer(game) {
     game.players.length;
 }
 
-// -------------------- Main --------------------
 function main() {
   const game = setupGame();
+  const fs = require('fs');
+  fs.writeFileSync('hand.json', JSON.stringify(game.players[0].hand, null, 2));
 
   while (true) {
     takeTurn(game);
