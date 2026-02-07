@@ -1,0 +1,30 @@
+[
+  {
+    "color": "red",
+    "value": "5"
+  },
+  {
+    "color": "green",
+    "value": "reverse"
+  },
+  {
+    "color": "blue",
+    "value": "7"
+  },
+  {
+    "color": "red",
+    "value": "8"
+  },
+  {
+    "color": "blue",
+    "value": "7"
+  },
+  {
+    "color": "blue",
+    "value": "2"
+  },
+  {
+    "color": "blue",
+    "value": "reverse"
+  }
+]
