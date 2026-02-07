@@ -8,13 +8,15 @@
     <style>
         .hand {
             position: fixed;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-            padding: 1rem 0 2rem 0;
-            z-index: 10;
+                left: 50%;
+                bottom: 0;
+                right: auto;
+                transform: translateX(-50%);
+                margin: 0;
+                display: flex;
+                gap: 0.5rem;
+                padding: 0;
+                z-index: 10;
         }
         .hand img {
             height: 100px;
@@ -39,6 +41,53 @@
             border-radius: 0;
             box-shadow: none;
         }
+        .character-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 1.2rem 0 0 1.2rem;
+            height: 120px;
+            width: auto;
+            z-index: 20;
+        }
+        .restart-btn {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 30;
+            padding: 0.7rem 1.4rem;
+            font-size: 1.1rem;
+            background: #2ecc40;
+            color: #fff;
+            border: none;
+            border-radius: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #2223;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .restart-btn:hover {
+            background: #27ae38;
+            transform: scale(1.05);
+        }
+        .restart-btn#restart-btn {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 30;
+            padding: 0.7rem 1.4rem;
+            font-size: 1.1rem;
+            background: #2ecc40;
+            color: #fff;
+            border: none;
+            border-radius: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #2223;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .restart-btn#restart-btn:hover {
+            background: #27ae38;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -46,9 +95,10 @@
         <img src="../Tables/table_green.png.png" alt="Table Green" />
     </div>
     <div class="hand" id="player-hand"></div>
+    <img id="character-img" class="character-img" src="" alt="Character" />
+    <button class="restart-btn" id="restart-btn">Restart Game</button>
     <script>
         function getCardImage(card) {
-            // Map JS card values to image filenames
             if (card.color === 'wild') {
                 if (card.value === 'wild4') {
                     return '../Uno/individual/wild/4_plus.png';
@@ -78,6 +128,23 @@
         fetch('../hand.json')
             .then(res => res.json())
             .then(hand => renderHand(hand));
+
+        // Display a random character image (char_1.png to char_13.png)
+        function setRandomCharacter() {
+            const n = Math.floor(Math.random() * 13) + 1;
+            const img = document.getElementById('character-img');
+            img.src = `../Characters/char_${n}.png`;
+            img.alt = `Character ${n}`;
+        }
+        setRandomCharacter();
+
+        document.getElementById('restart-btn').onclick = function() {
+            fetch('http://localhost:3001/reshuffle', { method: 'POST' })
+                .then(() => fetch('../hand.json'))
+                .then(res => res.json())
+                .then(hand => renderHand(hand));
+            setRandomCharacter();
+        };
     </script>
 </body>
 </html>
