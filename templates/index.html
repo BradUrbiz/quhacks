@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>unoAI - Greeting</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .greeting-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .unoai-title {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px #222;
+            margin-bottom: 2rem;
+        }
+        .go-rules-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
+            background: #2ecc40;
+            color: #fff;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #2223;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .go-rules-btn:hover {
+            background: #27ae38;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Homepage</h1>
-    <p>This is a sample HTML template.</p>
-    
+    <div class="greeting-container">
+        <div class="unoai-title">Welcome to unoAI</div>
+        <button class="go-rules-btn" onclick="window.location.href='rules.html'">Go to Rules</button>
+    </div>
 </body>
 </html>

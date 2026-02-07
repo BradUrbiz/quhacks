@@ -1,0 +1,22 @@
+
+body {
+	background-image: url('../Backgrounds/background_2.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+}
+
+.center-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+.center-image img {
+	max-width: 100%;
+	max-height: 80vh;
+	box-shadow: none;
+	border-radius: 0;
+}
