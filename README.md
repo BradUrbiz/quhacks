@@ -16,4 +16,7 @@ We created an AI-powered UNO game. It allows you to play on various difficulties
 8. Run python api.py
 9. Assuming live server extension is installed, open index.html with live server
 
+# Demo (vid is dated since we took it before hackathon ended, so it's missing a few features)
+https://www.youtube.com/watch?v=xI61ZPctXC8
+
 THANKS!
